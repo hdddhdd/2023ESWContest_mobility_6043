@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'bottom_nav.dart';
+import "pages/home.dart";
+import "pages/records.dart";
+import "pages/notifications.dart";
 
 void main() => runApp(MyApp());
 
@@ -22,15 +25,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
+    Home(),
+    Records(),
+    Notifications()
   ];
 
   void _onTabTapped(int index) {
