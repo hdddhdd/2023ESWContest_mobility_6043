@@ -132,9 +132,9 @@ def run(
                     box = xyxy2xywh(torch.tensor(xyxy).view(1, 4)).view(-1).tolist()
                     # print(label, confidence, box)
                     if label not in pred_dict:
-                        pred_dict[label] = [[confidence, box]]
+                        pred_dict[label] = [[round(confidence*100,2), box]]
                     else:
-                        pred_dict[label].append([confidence, box])
+                        pred_dict[label].append([round(confidence*100,2), box])
 
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
@@ -174,13 +174,13 @@ def run(
                     vid_writer[i].write(im0)
 
         # Print time (inference-only)
-        LOGGER.info(f"{s}{'' if len(det) else '(no detections), '}{dt[1].dt * 1E3:.1f}ms")
+    #     LOGGER.info(f"{s}{'' if len(det) else '(no detections), '}{dt[1].dt * 1E3:.1f}ms")
 
-    # Print results
-    t = tuple(x.t / seen * 1E3 for x in dt)  # speeds per image
-    LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}' % t)
-    if save_img:
-        LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}")
+    # # Print results
+    # t = tuple(x.t / seen * 1E3 for x in dt)  # speeds per image
+    # LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}' % t)
+    # if save_img:
+    #     LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}")
     print("********* RESULT *********")
     pprint(pred_dict)
 
@@ -218,4 +218,5 @@ def detection(model, input):
 if __name__ == '__main__':
     # detection("last.pt", "test.jpg")
     # detection("last.pt", "http://127.0.0.1:5000/video_feed")
-    detection("best_50_ver1.pt", 1)
+    detection("yolov5n.pt", "input.png")
+    detection("yolov5custom.pt", "input.png")
