@@ -79,6 +79,7 @@ def run(
     # Run inference
     model.warmup(imgsz=(1 if pt or model.triton else bs, 3, *imgsz))  # warmup
     seen, windows, dt = 0, [], (Profile(), Profile(), Profile())
+    
     for path, im, im0s, vid_cap, s in dataset:
         with dt[0]:
             im = torch.from_numpy(im).to(model.device)
@@ -184,6 +185,7 @@ def run(
     pprint(pred_dict)
 
 def detection(model, input):
+    
     args = argparse.Namespace(
         weights=model,
         source=input,
@@ -216,4 +218,4 @@ def detection(model, input):
 if __name__ == '__main__':
     # detection("last.pt", "test.jpg")
     # detection("last.pt", "http://127.0.0.1:5000/video_feed")
-    detection("yolov5n.pt", "input.png")
+    detection("best_50_ver1.pt", 1)
