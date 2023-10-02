@@ -16,8 +16,7 @@ from ultralytics.utils.plotting import Annotator, colors, save_one_box
 
 from models.common import DetectMultiBackend
 from utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
-from utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements, colorstr, cv2,
-                           increment_path, non_max_suppression, print_args, scale_boxes, strip_optimizer, xyxy2xywh)
+from utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, cv2, increment_path, non_max_suppression, scale_boxes, xyxy2xywh)
 from utils.torch_utils import select_device, smart_inference_mode
 
 
@@ -32,7 +31,6 @@ def run(
         max_det=1000,  # maximum detections per image
         device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
         view_img=False,  # show results
-        save_crop=False,  # save cropped prediction boxes
         nosave=False,  # do not save images/videos
         classes=None,  # filter by class: --class 0, or --class 0 2 3
         agnostic_nms=False,  # class-agnostic NMS
@@ -97,9 +95,9 @@ def run(
         with dt[2]:
             pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
 
-        pred_dict = {}
         # Process predictions
         for i, det in enumerate(pred):  # per image
+            pred_dict = {}
             seen += 1
             if webcam:  # batch_size >= 1
                 p, im0, frame = path[i], im0s[i].copy(), dataset.count
@@ -112,8 +110,6 @@ def run(
             save_path = str(save_dir / p.name)  # im.jpg
             
             s += '%gx%g ' % im.shape[2:]  # print string
-            gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
-            imc = im0.copy() if save_crop else im0  # for save_crop
             annotator = Annotator(im0, line_width=line_thickness, example=str(names))
             if len(det):
                 # Rescale boxes from img_size to im0 size
@@ -130,19 +126,17 @@ def run(
                     label = names[c] if hide_conf else f'{names[c]}'
                     confidence = float(conf)
                     box = xyxy2xywh(torch.tensor(xyxy).view(1, 4)).view(-1).tolist()
-                    # print(label, confidence, box)
                     if label not in pred_dict:
                         pred_dict[label] = [[round(confidence*100,2), box]]
                     else:
                         pred_dict[label].append([round(confidence*100,2), box])
 
-                    if save_img or save_crop or view_img:  # Add bbox to image
+                    if save_img or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         annotator.box_label(xyxy, label, color=colors(c, True))
-                    if save_crop:
-                        save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
-
+            print("********* RESULT *********")
+            pprint(pred_dict)
             # Stream results
             im0 = annotator.result()
             if view_img:
@@ -173,31 +167,18 @@ def run(
                         vid_writer[i] = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
                     vid_writer[i].write(im0)
 
-        # Print time (inference-only)
-    #     LOGGER.info(f"{s}{'' if len(det) else '(no detections), '}{dt[1].dt * 1E3:.1f}ms")
-
-    # # Print results
-    # t = tuple(x.t / seen * 1E3 for x in dt)  # speeds per image
-    # LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}' % t)
-    # if save_img:
-    #     LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}")
-    print("********* RESULT *********")
-    pprint(pred_dict)
-
 def detection(model, input):
     
     args = argparse.Namespace(
         weights=model,
         source=input,
         data='coco128.yaml',
-        # data='data.yaml',
         imgsz=(640, 640),
         conf_thres=0.25,
         iou_thres=0.45,
         max_det=1000,
         device='',
         view_img=False,
-        save_crop=False,
         nosave=False,
         classes=None,
         agnostic_nms=False,
@@ -216,7 +197,6 @@ def detection(model, input):
     run(**vars(args))
 
 if __name__ == '__main__':
-    # detection("last.pt", "test.jpg")
-    # detection("last.pt", "http://127.0.0.1:5000/video_feed")
-    detection("yolov5n.pt", "input.png")
-    detection("yolov5custom.pt", "input.png")
+    # detection("yolov5n.pt", "http://192.168.0.3:8080/video_feed")
+    # detection("yolov5custom.pt", "input.png")
+    detection("yolov5n.pt", "0")
