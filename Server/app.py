@@ -72,24 +72,25 @@ def gen_frames():
             ref, buffer = cv2.imencode('.jpg', frame)
             frame1 = frame
             frame = buffer.tobytes()
-            if start_record == True and is_record == False:
+            # start_record = 자이로센서 값 (1 or 0)
+            if start_record == True and is_record == False:     # 녹화 시작
                 is_record = True
                 start_record = False
                 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
                 video = cv2.VideoWriter(video_name, fourcc, 15, (frame1.shape[1], frame1.shape[0]))
-            elif start_record and is_record == True:
+            elif start_record and is_record == True:        # 녹화 끝
                 is_record = False
                 start_record = False
                 # result = firebase_process(video_name)
                 # print(result)
+                # reuslt 파일 삭제
+                # os.remove(video_name)
                 video.release()
-            if is_record == True:
+            if is_record == True:      # 녹화 중
                 nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                if nowDatetime[-2:] == str(int(start_time[-2:]) + recording_time):
-                    print(f"***** {recording_time}초 지났습니다. *****")
-                    print(start_time)
-                    print(nowDatetime)
-                    start_record = True
+                # if 충격감지 센서 값 (1 or 0):
+                #     print("***** 충격이 감지되었습니다. *****")
+                #     start_record = True
                 video.write(frame1)
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
