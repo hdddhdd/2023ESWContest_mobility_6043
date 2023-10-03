@@ -1,8 +1,14 @@
 from smbus2 import SMBus
 from bitstring import Bits
 import math
+import time
+import RPi.GPIO as GPIO
 
 DEV_ADDR = 0x68
+CMD = False
+previous_aY = 0
+count = 0
+LeftT = 0
 
 register_accel_xout_h = 0x3B
 register_accel_yout_h = 0x3D
@@ -26,17 +32,12 @@ def dist(a,b):
     return math.sqrt((a*a)+(b*b))
 
 def get_y_rotation(x, y, z):
-    radians = math.atan(y/dist(x,z)) 
+    radians = math.atan2(y,x)
     degrees = math.degrees(radians)
-    #if degrees < 0:
-        #degrees += 360 
-    #elif degrees >= 360:
-        #degrees -= 360
     return degrees
 
-
 def MPU():
-    global bus, DEV_ADDR, register_accel_xout_h, register_accel_yout_h, register_accel_zout_h
+    global bus, DEV_ADDR, register_accel_xout_h, register_accel_yout_h, register_accel_zout_h, CMD, previous_aY, count, LeftT
     bus = SMBus(1)
     bus.write_byte_data(DEV_ADDR,0x6B,0b00000000)
     x = read_data(register_accel_xout_h)
@@ -45,6 +46,34 @@ def MPU():
     aY = get_y_rotation(accel_g(x),accel_g(y),accel_g(z))
     data = str(aY)
     bus.close()
-    if aY > 90:
-        return "우회전 입니다.", aY
-    return "우회전이 아닙니다.", aY
+    if LeftT > 0:
+        if previous_aY - aY > 180:
+            LeftT -= 1
+            previous_aY = aY
+            return False, round(aY, 2)
+        elif previous_aY - aY < -180:
+            LeftT += 1
+            previous_aY = aY
+            return False, round(aY, 2)
+    if count > 0:
+        if previous_aY - aY < -180:
+            count -= 1
+        elif previous_aY - aY > 180:
+            count += 1
+        previous_aY = aY
+        return True, round(aY, 2)
+    if aY > 0 and LeftT == 0:
+        if previous_aY - aY < -180:
+            LeftT = 1
+            previous_aY = aY
+            return False, round(aY, 2)
+        CMD = True
+        previous_aY = aY
+        return True, round(aY, 2) 
+    elif previous_aY - aY > 180 and CMD == True:
+        count += 1
+        previous_aY = aY
+        return True, round(aY, 2)
+    CMD = False
+    previous_aY = aY
+    return False, round(aY, 2)
