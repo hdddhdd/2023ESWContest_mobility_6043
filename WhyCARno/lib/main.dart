@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:whycarno/service/databaseSvc.dart';
 import 'bottom_nav.dart';
-import "pages/home.dart";
-import "pages/records.dart";
-import "pages/notifications.dart";
+import 'pages/home.dart';
+import 'pages/records.dart';
+import 'pages/notifications.dart';
 
-void main() => runApp(MyApp());
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -22,13 +35,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //   ////
+  // void initState(){
+  //   super.initState();
+  //   testDB();
+  // }
+
+  // void testDB(){
+  //   DatabaseSvc().writeDB();
+  // }
+  ///
+
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    Home(),
-    Records(),
-    Notifications()
-  ];
+  final List<Widget> _pages = [Home(), Records(), Notifications()];
 
   void _onTabTapped(int index) {
     setState(() {
