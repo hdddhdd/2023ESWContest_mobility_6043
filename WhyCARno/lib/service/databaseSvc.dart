@@ -1,38 +1,83 @@
 // import 'dart:ffi';
 
 import 'package:firebase_database/firebase_database.dart';
-import '../model/Media_whycarno.dart';
+import 'package:flutter/widgets.dart';
+import '../model/Whycarno.dart';
 
 class DatabaseSvc {
 // FirebaseDatabase database = FirebaseDatabase.instance;
 
   DatabaseReference ref = FirebaseDatabase.instance.ref();
+
+
+  void deleteDB(){
+     final whycarnoKeyRef = FirebaseDatabase.instance
+        .ref()
+        .child("mydata/2023-10-02/20:12:20"); //모든 정보를 지우고 싶으면 경로를 수정하면 될 것
+
+        whycarnoKeyRef.remove();
+  }
+  void updateDB() {
+    final whycarnoData = {
+      'video_Url': "newVideoUrlValue",
+    };
+
+    final whycarnoKeyRef = FirebaseDatabase.instance
+        .ref()
+        .child("mydata/2023-10-02/20:12:20");
+
+    whycarnoKeyRef.update(whycarnoData).then((_) {
+      // Data saved successfully!
+      print("데이터 업데이트 완료");
+    }).catchError((error) {
+      // The write failed...
+      print("데이터 업데이트 실패");
+    });
+    ;
+  }
+
   Future<void> writeDB() async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("data/2023-10-02_19:12:19/");
+    DatabaseReference ref =
+        FirebaseDatabase.instance.ref("mydata/2023-10-02/20:12:20");
 
     await ref.set({
-      "longitude": "101",
+      "longitude": "34",
       "latitude": "90",
-      "video_Url": "이건 비디오 url 나중에 추가",
-      "video_runtime": "10.01",
-      "date_time": "2023-10-02_19:12:19",
+      "video_Url": "https://www.youtube.com/watch?v=5HrZNS-mNj8",
+      "video_runtime": "30",
+      "date_time": "2023-10-30_19:00:00",
+      
+    }).then((_) {
+      // Data saved successfully!
+      print("데이터 쓰기 완료");
+    }).catchError((error) {
+      // The write failed...
+      print("데이터 쓰기 실패");
     });
+    ;
+    ;
   }
+
   void readDB() {
-    DatabaseReference starCountRef =
-        FirebaseDatabase.instance.ref('data/2023-10-02_19:12:19/');
-    starCountRef.onValue.listen((DatabaseEvent event) { //list
-      final data = event.snapshot.value as Map<dynamic, dynamic>; //읽어온 데이터 스냅샷
-      if (data.isEmpty){
+    DatabaseReference starCountRef = FirebaseDatabase.instance
+        .ref('mydata/2023-10-02/'); // 수정된 경로 사용
+    starCountRef.onValue.listen((DatabaseEvent event) {
+      final data = event.snapshot.value as Map<dynamic, dynamic>; // list
+      if (data.isEmpty) {
         print('no data');
         return;
       }
-      final medium = <Media_whycarno>[];
-      for (final key in data.keys){
-        final mediavalue = data[key];
-        final media = Media_whycarno.fromMap(mediavalue);
+
+      final whycarno_data = <Whycarno>[];
+      for (final key in data.keys) {
+        final value = data[key]; //datum1반환
+        final whycarno_singledata = Whycarno.fromMap(value);
+        whycarno_data.add(whycarno_singledata);
       }
-      //updateStarCount(data);
+
+      print("our data $whycarno_data");
+      
+      // medium 리스트를 사용하거나 처리할 작업을 추가할 수 있습니다.
     });
   }
 }

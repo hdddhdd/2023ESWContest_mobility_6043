@@ -1,5 +1,8 @@
+import "dart:js_util";
+
 import "package:flutter/material.dart";
-import "package:whycarno/model/Media_whycarno.dart";
+import "package:whycarno/model/Book.dart";
+import "package:whycarno/model/Whycarno.dart";
 import "package:whycarno/service/databaseSvc.dart";
 
 class Home extends StatefulWidget {
@@ -9,14 +12,14 @@ class Home extends StatefulWidget {
 
  
 class _HomeState extends State<Home> {
-  List<Media_whycarno> medium=[];
+  List<Whycarno> medium=[];
   void initState(){
     super.initState();
     testDB();
   }
 
   void testDB(){
-    DatabaseSvc().writeDB();
+    DatabaseSvc().readDB();
   }
 
   @override
