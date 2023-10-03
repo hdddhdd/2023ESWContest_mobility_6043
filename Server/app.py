@@ -1,4 +1,5 @@
 import os
+import time
 import cv2
 import datetime
 import numpy as np
@@ -6,11 +7,14 @@ import firebase_admin
 from uuid import uuid4
 from PIL import ImageFont, ImageDraw, Image
 from firebase_admin import credentials, db, storage
-from flask import Flask, render_template, Response, url_for, redirect
+from flask import Flask, render_template, Response
+# 센서 모듈 불러오기
+from MPU6050 import MPU
+from SW420 import Crash_D 
 
 app = Flask(__name__)
 capture = cv2.VideoCapture(0)
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 font = ImageFont.truetype('fonts/SCDream6.otf', 20)
@@ -18,7 +22,7 @@ font = ImageFont.truetype('fonts/SCDream6.otf', 20)
 is_record = False
 start_record = False
 video = None
-start_time = ""
+start_time = "" 
 recording_time = 10
 
 def database_init():
@@ -37,7 +41,7 @@ def firebase_process(image_file_path):
     new_token = uuid4()
     metadata = {"firebaseStorageDownloadTokens": new_token}
     blob = bucket.blob(image_file_path)
-    blob.content_type = 'video/mp4'
+    blob.content_type = 'video/avi'
     blob.metadata = metadata
     blob.upload_from_filename(image_file_path)
     update_data = {
@@ -51,13 +55,13 @@ def firebase_process(image_file_path):
 
 def gen_frames():  
     database_init()
-    global is_record, start_record, video
+    global is_record, start_record, video, fourcc
     # 현재 작업 디렉토리에 "result" 디렉토리가 없으면 생성
     directory = "result"
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    video_name = f"{directory}/accident.mp4"  # 파일 경로로 설정
+    video_name = f"{directory}/accident.avi"  # 파일 경로로 설정
     while True:
         now = datetime.datetime.now()
         nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -72,26 +76,36 @@ def gen_frames():
             ref, buffer = cv2.imencode('.jpg', frame)
             frame1 = frame
             frame = buffer.tobytes()
-            # start_record = 자이로센서 값 (1 or 0)
-            if start_record == True and is_record == False:     # 녹화 시작
-                is_record = True
-                start_record = False
-                fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-                video = cv2.VideoWriter(video_name, fourcc, 15, (frame1.shape[1], frame1.shape[0]))
-            elif start_record and is_record == True:        # 녹화 끝
+            # 자이로 센서 값 받아오기
+            start_record, value = MPU()
+            if start_record: 
+                if is_record == False:     # 녹화 시작
+                    if os.path.exists(video_name):
+                        os.remove(video_name)
+                        print("REMOVED!!!")
+                        time.sleep(2)
+                    print("//////// Recording Start ////////", value)
+                    is_record = True
+                    start_record = False
+                    video = cv2.VideoWriter(video_name, fourcc, 15, (frame1.shape[1], frame1.shape[0]))
+                else:      # 녹화 중
+                    print("+++++++++ RECORDING!!! ++++++++++++")
+                    if Crash_D():
+                        print("***** CRASH!!!! *****")
+                        is_record = False
+                        start_record = False
+                        result = firebase_process(video_name)
+                        print(result)
+                        print("=== Recording Stop and DB upload Success ===")
+                        # reuslt 파일 삭제
+                        video.release()
+                        os.remove(video_name)
+                        print("REMOVED!!!")
+                        time.sleep(3)
+                    video.write(frame1)
+            else:
                 is_record = False
-                start_record = False
-                # result = firebase_process(video_name)
-                # print(result)
-                # reuslt 파일 삭제
-                # os.remove(video_name)
-                video.release()
-            if is_record == True:      # 녹화 중
-                nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                # if 충격감지 센서 값 (1 or 0):
-                #     print("***** 충격이 감지되었습니다. *****")
-                #     start_record = True
-                video.write(frame1)
+                print(start_record, value)
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
@@ -104,14 +118,6 @@ def index():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/push_record')
-def push_record():
-    global start_record
-    start_record = not start_record
-    global start_time
-    start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    return redirect(url_for('index'))
-
 if __name__ == "__main__":
-    app.run(debug=True)
-    # app.run(host="192.168.0.19", port="8080")
+    # app.run(debug=True)
+    app.run(host="192.168.0.5", port="8080")
