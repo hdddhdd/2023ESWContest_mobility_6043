@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "package:whycarno/model/Book.dart";
 import "package:whycarno/service/databaseSvc.dart";
+import "package:whycarno/model/Whycarno.dart";
 
 class Notifications extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class Notifications extends StatefulWidget {
 
 class _NotificationsState extends State<Notifications> {
 
-  List<Book> medium=[];
+  List<Whycarno> medium=[];
   void initState(){
     super.initState();
     testDB();

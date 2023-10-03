@@ -52,9 +52,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '397000885213',
     projectId: 'whycarno-firebase',
     authDomain: 'whycarno-firebase.firebaseapp.com',
+    databaseURL: 'https://whycarno-firebase-default-rtdb.firebaseio.com',
     storageBucket: 'whycarno-firebase.appspot.com',
     measurementId: 'G-SRSPM7Q4MR',
-    databaseURL: 'https://whycarno-firebase-default-rtdb.firebaseio.com/',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -62,6 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:397000885213:android:e9df61bb678e30b7712c34',
     messagingSenderId: '397000885213',
     projectId: 'whycarno-firebase',
+    databaseURL: 'https://whycarno-firebase-default-rtdb.firebaseio.com',
     storageBucket: 'whycarno-firebase.appspot.com',
   );
 
@@ -70,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:397000885213:ios:63a24ea923714fbf712c34',
     messagingSenderId: '397000885213',
     projectId: 'whycarno-firebase',
+    databaseURL: 'https://whycarno-firebase-default-rtdb.firebaseio.com',
     storageBucket: 'whycarno-firebase.appspot.com',
     iosBundleId: 'com.example.whycarno',
   );

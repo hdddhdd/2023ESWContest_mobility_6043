@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "397000885213",
+    "firebase_url": "https://whycarno-firebase-default-rtdb.firebaseio.com",
     "project_id": "whycarno-firebase",
     "storage_bucket": "whycarno-firebase.appspot.com"
   },
