@@ -38,14 +38,14 @@ class DatabaseSvc {
 
   Future<void> writeDB() async {
     DatabaseReference ref =
-        FirebaseDatabase.instance.ref("mydata/2023-10-02/20:12:20");
+        FirebaseDatabase.instance.ref("mydata/2023-10-02/19:12:20");
 
     await ref.set({
-      "longitude": "34",
-      "latitude": "90",
-      "video_Url": "https://www.youtube.com/watch?v=5HrZNS-mNj8",
-      "video_runtime": "30",
-      "date_time": "2023-10-30_19:00:00",
+      "longitude": "1",
+      "latitude": "1",
+      "video_Url": "https://www.youtube.com/watch?v=eJp-A2OBWnw",
+      "video_runtime": "222",
+      "date_time": "2023-09-30_19:10:00",
       
     }).then((_) {
       // Data saved successfully!
