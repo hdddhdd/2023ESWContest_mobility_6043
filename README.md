@@ -21,15 +21,15 @@
 #### 🤷‍♂️ 윤우린 [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
 
 ## 1. 작품 소개
->  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/>
->  **ALGORITHM (ALlowing GOing RIght TeacHing Model)**
+>  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/><br/>
+>  **작품명 : ALGORITHM (ALlowing GOing RIght TeacHing Model)** <br/><br/>
 **1) 작품 배경**<br/>
 **2) 작품 목적**<br/>
 **3) 기대효과 및 확장 가능성**<br/>
 **4) 배포 링크:**
 
 ## 2. 작품 시연
-### [시연 영상(현재 링크에서 확인 가능)]
+**시연 영상(현재 링크에서 확인 가능)]**<br/>
 
 ## 3. 어플리케이션
 **1) 홈 화면**<br/>
@@ -44,9 +44,9 @@
 ## 5. Software
 
 ## 6. 기술스택
-#### front-end:
-#### back-end: <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-#### distribute: <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
+**front-end:**<br/>
+**back-end:**<br/> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+**distribute:**<br/> <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
 
 
 
