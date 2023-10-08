@@ -9,13 +9,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 
-Future<void> main() async {
+void main() async {
  
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -45,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //   DatabaseSvc().writeDB();
   // }
   ///
-
-  int _currentIndex = 0;
+ 
+  int _currentIndex = 0; //여기서 바꿔줘야 
 
   final List<Widget> _pages = [Home(), Records(), Notifications()];
 

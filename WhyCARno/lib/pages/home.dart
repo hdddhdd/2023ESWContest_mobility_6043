@@ -14,9 +14,10 @@ class Home extends StatefulWidget {
 
 class _FetchDataState extends State<Home> {
   Query dbref = FirebaseDatabase.instance.ref().child('mydata/2023-10-02/');
-  DatabaseReference reference = FirebaseDatabase.instance.ref().child('mydata/');
+  DatabaseReference reference =
+      FirebaseDatabase.instance.ref().child('mydata/');
   List<Whycarno> medium = [];
-  
+
   // VideoPlayerController 변수 추가
   late VideoPlayerController _controller;
 
@@ -30,9 +31,9 @@ class _FetchDataState extends State<Home> {
   }
 
   Widget listItem({required Map mydata}) {
-    // VideoPlayerController를 초기화하고 영상을 플레이
+    // ignore: deprecated_member_use
     _controller = VideoPlayerController.network(
-      mydata['video_Url'],
+      "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
     );
 
     // VideoPlayerController의 초기화 완료 여부 확인
@@ -41,7 +42,6 @@ class _FetchDataState extends State<Home> {
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
-      color: Colors.amberAccent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,18 +60,16 @@ class _FetchDataState extends State<Home> {
           const SizedBox(
             height: 5,
           ),
-          // 영상 로딩이 성공한 경우에만 비디오 플레이어 위젯 추가
           FutureBuilder(
-            future: initializeVideoPlayerFuture,
+            future: _controller.initialize(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 return AspectRatio(
-                  aspectRatio: 4 / 3,
+                  aspectRatio: _controller.value.aspectRatio,
                   child: VideoPlayer(_controller),
                 );
               } else {
-                // 영상 로딩 중이거나 로딩에 실패한 경우 에러 메시지 표시
-                return Text(
+                return const Text(
                   '영상을 불러오는 중 또는 에러가 발생했습니다.',
                   style: TextStyle(fontSize: 16),
                 );
@@ -81,9 +79,26 @@ class _FetchDataState extends State<Home> {
           const SizedBox(
             height: 5,
           ),
-          Text(
-            mydata['video_runtime'],
-            style: TextStyle(fontSize: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                icon: Icon(Icons.play_arrow),
+                onPressed: () {
+                  if (!_controller.value.isPlaying) {
+                    _controller.play();
+                  }
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.pause),
+                onPressed: () {
+                  if (_controller.value.isPlaying) {
+                    _controller.pause();
+                  }
+                },
+              ),
+            ],
           ),
         ],
       ),
@@ -101,7 +116,11 @@ class _FetchDataState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("홈"),
+        title: Text(
+          "홈",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: Container(
         child: FirebaseAnimatedList(

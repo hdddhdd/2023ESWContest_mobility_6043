@@ -38,6 +38,10 @@ dependencies:
   firebase_core: ^2.16.0
   firebase_database: ^10.2.6
   video_player: ^2.7.2
+  youtube_player_flutter: ^8.1.2
+  chewie: ^1.7.1
+  firebase_storage: ^11.2.8
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
