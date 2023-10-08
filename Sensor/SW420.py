@@ -11,6 +11,6 @@ def Crash_D():
 
     if GPIO.input(PIN_NUM)==CHECK_ON:
         GPIO.cleanup()
-        return "충돌이 감지되었습니다."
+        return True
     GPIO.cleanup()
-    return "평상시"
+    return False
