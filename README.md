@@ -22,7 +22,7 @@
 
 ## 1. 작품 소개
 >  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/><br/>
->  **작품명 : ALGORITHM (ALlowing GOing RIght TeacHing Model)** <br/><br/>
+>  **작품명 : ALGORITHM (ALlowing GOing RIght TeacHing Model)** <br/>
 * 작품 배경<br/>
 * 작품 목적<br/>
 * 기대효과 및 확장 가능성<br/>
@@ -42,6 +42,7 @@
 * 센서 회로도<br/>
 
 ## 5. Software
+* 알고리즘<br/>
 
 ## 6. 기술스택
 <div style="diplay=flex">
