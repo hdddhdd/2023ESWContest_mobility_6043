@@ -29,7 +29,7 @@
 **4) 배포 링크:**
 
 ## 2. 작품 시연
-**시연 영상(현재 링크에서 확인 가능)]**<br/>
+**시연 영상(현재 링크에서 확인 가능)**<br/>
 
 ## 3. 어플리케이션
 **1) 홈 화면**<br/>
@@ -44,9 +44,18 @@
 ## 5. Software
 
 ## 6. 기술스택
-**front-end:**<br/>
-**back-end:**<br/> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-**distribute:**<br/> <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
+<div style="diplay=flex">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
+  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=Dart&logoColor=white">
+  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=OpenCV&logoColor=white">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+  <img src="https://img.shields.io/badge/YOLO-FFA500?style=for-the-badge&logo=YOLO&logoColor=black">
+  <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&logoColor=black">
+  <br/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=black">
+  <img src="https://img.shields.io/badge/라즈베리%20파이-C51A4A?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white">
+  <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
 
-
-
+</div>
