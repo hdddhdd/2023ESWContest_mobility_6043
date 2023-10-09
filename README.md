@@ -36,15 +36,19 @@
 * 녹화 화면<br/>
 * 알림 화면
 
-## 4. Hardware
+## 4. 웹
+* 메인 화면<br/>
+* 녹화 영상 화면<br/>
+
+## 5. Hardware
 * Hardware 구성<br/>
 * 작품 외관<br/>
 * 센서 회로도<br/>
 
-## 5. Software
+## 6. Software
 * 알고리즘<br/>
 
-## 6. 기술스택
+## 7. 기술스택
 <div style="diplay=flex">
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=Dart&logoColor=white">
