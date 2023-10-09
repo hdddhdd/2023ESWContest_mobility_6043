@@ -105,6 +105,8 @@ class _NotificationsState extends State<Notifications> {
     previousNumberOfFiles = numberOfFiles;
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     // numberOfFiles가 이전보다 1 더 크면 "데이터 추가!" 메시지를 출력
@@ -112,8 +114,8 @@ class _NotificationsState extends State<Notifications> {
       // "데이터 추가!" 메시지를 화면에 출력
       WidgetsBinding.instance!.addPostFrameCallback((_) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("충돌이 감지되었습니다."),
+          const SnackBar(
+            content: Text('충돌이 감지되었습니다.', style: TextStyle(fontSize: 18),),
           ),
         );
       });
@@ -145,6 +147,7 @@ class _NotificationsState extends State<Notifications> {
                    
                     title: Text('${videoUploadTimes[index]}',style: TextStyle(color: Color.fromRGBO(1, 45, 107, 1)),),
                     subtitle: Text('충돌이 감지되었습니다.', ),
+                    
                   );
                 },
               ),

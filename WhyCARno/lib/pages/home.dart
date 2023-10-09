@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -14,23 +16,6 @@ class Home extends StatefulWidget {
 }
 
 class _FetchDataState extends State<Home> {
-  // Query dbref = FirebaseDatabase.instance.ref().child('mydata/2023-10-02/');
-  // DatabaseReference reference =
-  //     FirebaseDatabase.instance.ref().child('mydata/');
-  // List<Whycarno> medium = [];
-
-  // // VideoPlayerController 변수 추가
-  // late VideoPlayerController _controller;
-
-  void initState() {
-    
-    super.initState();
-    testDB();
-  }
-
-  void testDB() {
-    DatabaseSvc().writeDB();
-  }
 
   @override
   void dispose() {
@@ -44,7 +29,7 @@ class _FetchDataState extends State<Home> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            "우회전 보조 운전 시스템",
+            "whyCARno",
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
@@ -56,6 +41,14 @@ class _FetchDataState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+              
+                Image.asset('assets/images/carsample.png',
+                width: 700,
+                height: 300,
+                //  fit: BoxFit.cover, // 이미지를 화면에 맞게 크기 조절
+                ),
+                // SizedBox(height: 20,),
+
                 OutlinedButton(
                   onPressed: () {
                     // Handle the first button press
@@ -72,7 +65,7 @@ class _FetchDataState extends State<Home> {
                         fontSize: 18, color: Color.fromRGBO(1, 45, 107, 1)),
                   ),
                 ),
-                SizedBox(height: 16), // Add some spacing between the buttons
+                const SizedBox(height: 16), // Add some spacing between the buttons
                 OutlinedButton(
                   onPressed: () {
                     // Handle the second button press

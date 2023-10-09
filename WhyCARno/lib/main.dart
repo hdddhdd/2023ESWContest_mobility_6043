@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:whycarno/pages/rightguide.dart';
-import 'package:whycarno/pages/test.dart';
 import 'package:whycarno/service/databaseSvc.dart';
 import 'bottom_nav.dart';
 import 'pages/home.dart';
@@ -76,7 +75,6 @@ class _MyHomePageState extends State<MyHomePage> {
     Records(),
     Notifications(),
     Rightguide(),
-    Test(),
   ];
 
   void _onTabTapped(int index) {
