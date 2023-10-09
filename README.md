@@ -4,10 +4,11 @@
 #### 0. [Team INFO](#team-info)
 #### 1. [작품 소개](#작품-소개)   
 #### 2. [작품 시연](#작품-시연)   
-#### 3. [어플리케이션](#어플리케이션)   
-#### 4. [Hardware](#Hardware)   
-#### 5. [Software](#Software) 
-#### 6. [기술스택](#기술-스택)
+#### 3. [Application](#Application)   
+#### 4. [Web](#어플리케이션)   
+#### 5. [Hardware](#Hardware)   
+#### 6. [Software](#Software) 
+#### 7. [기술스택](#기술-스택)
 
 ## 0. Team INFO
 ### Team whycarno | 경북대학교 컴퓨터학부 소속
@@ -31,12 +32,12 @@
 ## 2. 작품 시연
 **시연 영상(현재 링크에서 확인 가능)**<br/>
 
-## 3. 어플리케이션
+## 3. Application
 * 홈 화면<br/>
 * 녹화 화면<br/>
 * 알림 화면
 
-## 4. 웹
+## 4. Web
 * 메인 화면<br/>
 * 녹화 영상 화면<br/>
 
