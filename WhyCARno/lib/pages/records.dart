@@ -19,6 +19,9 @@ class _RecordsState extends State<Records> {
   List<Whycarno> medium = [];
 
   late VideoPlayerController _controller;
+  int numberOfFiles = 0;
+
+  final yourScroller = ScrollController();
 
   Widget listItem({required Map mydata}) {
     return Container(
@@ -72,6 +75,10 @@ class _RecordsState extends State<Records> {
 
               // 영상 길이를 리스트에 추가
               videoDurations.add(formattedDuration.toString());
+
+              //개수 가져오기
+                numberOfFiles = listResult.items.length;
+             
             });
           });
         controllers.add(controller);
@@ -122,6 +129,7 @@ class _RecordsState extends State<Records> {
           child: Scrollbar(
               thickness: 4.0,
               radius: Radius.circular(8.0),
+              // controller: yourScroller,
               // isAlwaysShown:true,
               child: ListView.builder(
                 itemCount: videoDurations.length,
@@ -129,14 +137,14 @@ class _RecordsState extends State<Records> {
                   return Column(
                     children: <Widget>[
                       const SizedBox(height: 20), //
-                          Text(
+                      Text(
                         '${videoUploadTimes[index][0]}${videoUploadTimes[index][1]}${videoUploadTimes[index][2]}${videoUploadTimes[index][3]}년 ${videoUploadTimes[index][5]}${videoUploadTimes[index][6]}월 ${videoUploadTimes[index][8]}${videoUploadTimes[index][9]}일 ${videoUploadTimes[index][11]}${videoUploadTimes[index][12]}시 ${videoUploadTimes[index][14]}${videoUploadTimes[index][15]}분 ${videoUploadTimes[index][17]}${videoUploadTimes[index][18]}초',
                         style: const TextStyle(
                           fontSize: 18,
                         ),
                         textAlign: TextAlign.right,
                       ),
-                       const SizedBox(height: 10), //
+                      const SizedBox(height: 10), //
                       Container(
                         width: 352,
                         height: 198,
@@ -162,16 +170,13 @@ class _RecordsState extends State<Records> {
                       const SizedBox(
                           height: 8), // Add some spacing between video and text
 
-                  
                       Container(
                         alignment: Alignment.topRight,
                         padding: EdgeInsets.fromLTRB(0, 5, 50, 0),
                         child: Text(
                           '${videoDurations[index][5]}${videoDurations[index][6]}초',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey
-                          ),
+                          style:
+                              const TextStyle(fontSize: 18, color: Colors.grey),
                           textAlign: TextAlign.right,
                         ),
                       ),
