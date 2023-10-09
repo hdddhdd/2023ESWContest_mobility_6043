@@ -5,6 +5,7 @@ import datetime
 import numpy as np
 import firebase_admin
 from uuid import uuid4
+from pathlib import Path
 from PIL import ImageFont, ImageDraw, Image
 from firebase_admin import credentials, db, storage
 from flask import Flask, render_template, Response
@@ -13,9 +14,10 @@ from MPU6050 import MPU
 from SW420 import Crash_D 
 from MP3Player import player
 
+
 app = Flask(__name__)
 capture = cv2.VideoCapture(0)
-cv2.VideoWriter_fourcc(*'mp4v')
+fourcc = cv2.VideoWriter_fourcc(*'H264')
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 font = ImageFont.truetype('fonts/SCDream6.otf', 20)
@@ -38,20 +40,22 @@ def database_init():
         })
 
 def firebase_process(image_file_path, DB_name):
-    folder_path, image_file_name = image_file_path.split('/')[0], image_file_path.split('/')[1]
+    folder_path, video_file_name = image_file_path.split('/')[0], image_file_path.split('/')[1]
     bucket = storage.bucket()
     new_token = uuid4()
     metadata = {"firebaseStorageDownloadTokens": new_token}
-    blob = bucket.blob(image_file_path)
-    blob.content_type = 'video/mp4'
+    blob = bucket.blob(video_file_name)
+    blob.content_type = 'video/mov'
     blob.metadata = metadata
     blob.upload_from_filename(image_file_path)
-    # 날짜 - 시간
+    video_url = f"https://firebasestorage.googleapis.com/v0/b/{bucket.name}/o/{video_file_name}?alt=media&token={new_token}"
+    
     update_data = {
-        "accident_time": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        "video_url": f"https://firebasestorage.googleapis.com/v0/b/{bucket.name}/o/{folder_path}%2F{image_file_name}?alt=media&token={new_token}"
+        "date_time": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        "video_url": video_url  # 비디오 URL로 변경
     }
-    dir = db.reference(f"accident/{DB_name}")
+    idx = datetime.datetime.now().strftime("%H:%M:%S")
+    dir = db.reference(f"accident/{DB_name}/{idx}")
     dir.update(update_data)
     ref = db.reference("accident")
     return ref.get()
@@ -63,8 +67,9 @@ def gen_frames():
     directory = "result"
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-    video_name = f"{directory}/accident.mp4"  # 파일 경로로 설정
+    video_name = f"{directory}/test.mov"  # 파일 경로로 설정
+    # video_name = f"{directory}/accident.mp4"  # 파일 경로로 설정
+    # video_name = str(Path(f'{directory}/accident').with_suffix(".mp4"))
     while True:
         now = datetime.datetime.now()
         nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -97,17 +102,17 @@ def gen_frames():
                     print("+++++++++ RECORDING!!! ++++++++++++", value)
                     if Crash_D():
                         print("***** CRASH!!!! *****")
+                        player(False, "mp3/collision.mp3")
                         is_record = False
                         start_record = False
+                        video.release()
                         result = firebase_process(video_name, DB_name)
                         print(result)
                         print("=== Recording Stop and DB upload Success ===")
                         # reuslt 파일 삭제
-                        video.release()
-                        os.remove(video_name)
-                        print("REMOVED!!!")
-                        time.sleep(3)
-                    video.write(frame1)
+                        time.sleep(2)
+                    else:
+                        video.write(frame1)
             else:
                 is_record = False
                 print(start_record, value)
