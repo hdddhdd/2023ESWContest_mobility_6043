@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ref, get, child } from 'firebase/database';
 import { realtimeDbService } from '../utils/firebase';
+import { BsMap }from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import './VideoPage.css'; // CSS 모듈 가져오기
 
@@ -45,6 +47,11 @@ export default function VideoPage() {
               ))}
             </div>
           ))}
+          <Link to="/">
+            <button className="homeButton">
+              {<BsMap className="icon" />} 홈
+            </button>
+          </Link>
         </div>
       ) : (
         <p>Loading...</p>
