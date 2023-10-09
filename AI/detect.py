@@ -6,6 +6,10 @@ from pathlib import Path
 from pprint import pprint
 import torch
 
+from MPU6050 import MPU
+from utils.IOU import IOU
+from utils.MP3Player import player
+
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
 if str(ROOT) not in sys.path:
@@ -78,6 +82,9 @@ def run(
     model.warmup(imgsz=(1 if pt or model.triton else bs, 3, *imgsz))  # warmup
     seen, windows, dt = 0, [], (Profile(), Profile(), Profile())
     
+    # 우회전 알고리즘 check point
+    right_algo = True
+    prev_dict = {}
     for path, im, im0s, vid_cap, s in dataset:
         with dt[0]:
             im = torch.from_numpy(im).to(model.device)
@@ -137,7 +144,6 @@ def run(
                         annotator.box_label(xyxy, label, color=colors(c, True))
             print("********* RESULT *********")
             pprint(pred_dict)
-            # Stream results
             im0 = annotator.result()
             if view_img:
                 if platform.system() == 'Linux' and p not in windows:
@@ -146,6 +152,39 @@ def run(
                     cv2.resizeWindow(str(p), im0.shape[1], im0.shape[0])
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
+
+            # 자이로 센서가 참일 경우에만 실행
+            resultMPU, value = MPU()
+            print(resultMPU, value)
+            if resultMPU:
+                if "c_r" in pred_dict:
+                    print("빨간불입니다. 멈추세요.")
+                    # TTS("빨간불입니다. 멈추세요.")
+                elif "c_g" in pred_dict:
+                    print("초록불입니다. 지나가세요.")
+                    # TTS("초록불입니다. 지나가세요.")
+
+                # check point 변환
+                # 생각해야할 점 - 갑자기 P_G나 P_R이 인식 -> 객체인식 못하다가 인식되는 경우, 잠시 짤렸을 경우
+                changed1 = "p_g" in prev_dict and "p_r" in pred_dict
+                changed2 = "p_r" in prev_dict and "p_g" in pred_dict
+                changed3 = "p_g" not in prev_dict and "p_g" in pred_dict
+                changed4 = "p_r" not in prev_dict and "p_r" in pred_dict
+                if changed1 or changed2 or changed3 or changed4 or not IOU(pred_dict):
+                    right_algo = True
+                # 우회전 알고리즘
+                if right_algo:
+                    # 1,2번 상황은 그냥 IOU값으로만 판단 가능
+                    # 1. 사람 유 / 초록불 -> STOP
+                    # 2. 사람 무 / 초록불 -> PASS
+                    # 3. 사람 무 / 빨간불 -> PASS
+                    # IOU가 0이면 사람이 없다는 뜻 -> True반한
+                    if IOU(pred_dict) or ("p_r" in pred_dict):
+                        print("지나가세요.")
+                    else:
+                        print("지나가세요.")
+                    right_algo = False
+            prev_dict = pred_dict.copy()
 
             # 나중에 필요할 수 있어서 일단 주석 처리
             # Save results (image with detections)
@@ -174,7 +213,7 @@ def detection(model, input):
         source=input,
         data='coco128.yaml',
         imgsz=(640, 640),
-        conf_thres=0.25,
+        conf_thres=0.5,
         iou_thres=0.45,
         max_det=1000,
         device='',
@@ -199,4 +238,5 @@ def detection(model, input):
 if __name__ == '__main__':
     # detection("yolov5n.pt", "http://192.168.0.3:8080/video_feed")
     # detection("yolov5custom.pt", "input.png")
-    detection("yolov5n.pt", "0")
+    # detection("best_100_ver12_s_batch16.pt", "http://192.168.0.5:8080/video_feed")
+    detection("best_100_ver12_s_batch16.pt", "0")
