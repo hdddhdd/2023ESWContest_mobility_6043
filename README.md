@@ -14,7 +14,7 @@
 
 #### 🤷 최희정(팀장) [nuly08@naver.com](mailto:nuly08@naver.com)
 
-#### 🤷‍♀️ 김동주 [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
+#### 🧑‍💻 김동주 [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
 
 #### 🤷‍♀️ 전지웅 [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
 
@@ -56,7 +56,7 @@
   <br/>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=black">
-  <img src="https://img.shields.io/badge/라즈베리%20파이-C51A4A?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white">
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white">
   <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
 
 </div>
