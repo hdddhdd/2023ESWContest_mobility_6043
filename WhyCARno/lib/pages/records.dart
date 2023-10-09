@@ -47,6 +47,7 @@ class _RecordsState extends State<Records> {
   }
 
   List<String> videoUploadTimes = [];
+  List<String> videoDurations = [];
 
   Future<void> loadVideoUrls() async {
     // Firebase Storage에서 파일 목록을 가져오는 코드
@@ -60,9 +61,18 @@ class _RecordsState extends State<Records> {
         final creationTime = await getUploadTime(item.name);
 
         videoUrls.add(downloadUrl);
-        var controller = VideoPlayerController.network(downloadUrl)
+        var controller;
+        controller = VideoPlayerController.network(downloadUrl)
           ..initialize().then((_) {
-            setState(() {});
+            setState(() {
+              // 영상 초기화가 완료된 후에 영상 길이를 가져옴
+              final videoDuration = controller.value.duration;
+              final formattedDuration =
+                  Duration(seconds: videoDuration.inSeconds);
+
+              // 영상 길이를 리스트에 추가
+              videoDurations.add(formattedDuration.toString());
+            });
           });
         controllers.add(controller);
 
@@ -114,32 +124,58 @@ class _RecordsState extends State<Records> {
               radius: Radius.circular(8.0),
               // isAlwaysShown:true,
               child: ListView.builder(
-                itemCount: controllers.length,
+                itemCount: videoDurations.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: <Widget>[
-                      AspectRatio(
-                        aspectRatio: controllers[index].value.aspectRatio,
-                        child: VideoPlayer(controllers[index]),
+                      const SizedBox(height: 20), //
+                          Text(
+                        '${videoUploadTimes[index][0]}${videoUploadTimes[index][1]}${videoUploadTimes[index][2]}${videoUploadTimes[index][3]}년 ${videoUploadTimes[index][5]}${videoUploadTimes[index][6]}월 ${videoUploadTimes[index][8]}${videoUploadTimes[index][9]}일 ${videoUploadTimes[index][11]}${videoUploadTimes[index][12]}시 ${videoUploadTimes[index][14]}${videoUploadTimes[index][15]}분 ${videoUploadTimes[index][17]}${videoUploadTimes[index][18]}초',
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
+                       const SizedBox(height: 10), //
+                      Container(
+                        width: 352,
+                        height: 198,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: <Widget>[
+                            VideoPlayer(controllers[index]),
+                            IconButton(
+                              icon: Icon(
+                                controllers[index].value.isPlaying
+                                    ? Icons.pause
+                                    : Icons.play_arrow,
+                                size: 50,
+                                color: Colors.white, // 버튼 아이콘 색상 설정
+                              ),
+                              onPressed: () {
+                                togglePlayPause(index);
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                           height: 8), // Add some spacing between video and text
-                      Text(
-                        // 'Upload Time: ${videoUploadTimes[index]}', // Display upload time here'
-                        '${videoUploadTimes[index]}',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          controllers[index].value.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow,
-                          size: 50,
+
+                  
+                      Container(
+                        alignment: Alignment.topRight,
+                        padding: EdgeInsets.fromLTRB(0, 5, 50, 0),
+                        child: Text(
+                          '${videoDurations[index][5]}${videoDurations[index][6]}초',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey
+                          ),
+                          textAlign: TextAlign.right,
                         ),
-                        onPressed: () {
-                          togglePlayPause(index);
-                        },
                       ),
+                      const SizedBox(height: 20), // Ad
                     ],
                   );
                 },
