@@ -52,19 +52,31 @@
 ## 6. Software
 * 알고리즘<br/>
 
-## 7. 기술스택
-<div style="diplay=flex">
+## 7. Stack
+### Environment
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&logoColor=black">
+  <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
+</div>
+
+### Development
+<div style="display: flex; justify-content: space-between;">
+  <h4>Hardware</h4>
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white">
+
+  <h4>Software</h4>
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=Dart&logoColor=white">
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=OpenCV&logoColor=white">
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
   <img src="https://img.shields.io/badge/YOLO-FFA500?style=for-the-badge&logo=YOLO&logoColor=black">
-  <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&logoColor=black">
-  <br/>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=black">
-  <img src="https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white">
-  <img src="https://img.shields.io/badge/Cloudtype-000000?style=for-the-badge&logo=Cloudtype&logoColor=white">
-
 </div>
+
+### Communication
+<div style="display: flex; justify-content: space-between;">
+//여기 노션, slack 넣기
+</div>
+
