@@ -9,7 +9,7 @@ exports.sendNotificationOnFileUpload = functions.storage
       console.log("Uploaded file path:", filePath); // 파일 경로 로그 출력
 
       // 원하는 파일 업로드 경로 또는 이름을 확인하여 필터링합니다.
-      if (filePath.startsWith("whycarno-firebase.appshot.com/")) {
+      if (filePath.startsWith("whycarno-firebase.appspot.com")) {
         const notificationMessage = "새로운 파일이 업로드되었습니다!";
         const payload = {
           notification: {

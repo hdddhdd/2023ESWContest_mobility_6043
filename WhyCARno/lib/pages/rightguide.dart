@@ -14,53 +14,61 @@ class Rightguide extends StatefulWidget {
 }
 
 class _FetchDataState extends State<Rightguide> {
-
-
-  void initState() {
-    super.initState();
-    testDB();
-  }
-
-  void testDB() {
-    DatabaseSvc().writeDB();
-  }
-
-
   @override
   void dispose() {
-    // 페이지가 dispose될 때 VideoPlayerController를 해제
-    // _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "올바른 우회전 가이드",
-            style: TextStyle(color: Colors.black),
+      appBar: AppBar(
+        title: const Text(
+          "올바른 우회전 가이드",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Color(0xFF001E5E),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.white,
-          leading: IconButton(
-          icon: Icon(Icons.arrow_back), // 뒤로 가기 버튼 아이콘
           onPressed: () {
-            Navigator.of(context).pop(); // 현재 페이지에서 뒤로 가기
+            Navigator.of(context).pop();
           },
-          color: Colors.black, // 아이콘 색상 설정
         ),
-        ),
-        body: Center(
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("올바른 우회전 방법 페이지",)
-              ],
-            ),
+      ),
+      body: Container(
+        color: Color(0xFF001E5E),
+        child: Scrollbar( // Scrollbar 위젯을 사용하여 스크롤바를 추가합니다.
+          child: ListView( // ListView로 감싸서 스크롤 가능한 목록을 생성합니다.
+            children: [
+              Image.asset(
+                'assets/images/guidepage1.png',
+                width: double.infinity,
+              ),
+                // Container(
+                //   alignment: Alignment.center,
+                //   padding: EdgeInsets.all(20),
+                //   child: Text("교차로 주변에는 횡단을 종료하지 못한 보행자, 무단횡단 보행자 등이 있을 수 있어 주의하며 운행해야 합니다.", 
+                //   style: TextStyle(color: Colors.white, fontSize: 20),
+                //   ),
+                // ),
+                Image.asset(
+                'assets/images/guidepage3.png',
+                width: double.infinity,
+              ),
+              Image.asset(
+                'assets/images/guidepage2.png',
+                width: double.infinity,
+              ),
+
+              SizedBox(height: 100,),
+            
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

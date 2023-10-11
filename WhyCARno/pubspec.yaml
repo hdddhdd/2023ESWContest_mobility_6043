@@ -45,6 +45,14 @@ dependencies:
   firebase_messaging: ^14.3.0
   flutter_local_notifications: ^14.0.0+1
   firebase_core_web: ^2.8.0
+  timer_builder: ^2.0.0
+ 
+# 권한 확인
+  permission_handler: ^8.3.0
+  
+# # 위치 관련 패키지
+#   geolocator: ^8.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,7 +79,10 @@ flutter:
   assets:
     - assets/images/carsample.png
     - assets/images/hyundai_image.jpeg
-    
+    - assets/images/guidepage1.png
+    - assets/images/guidepage2.png
+    - assets/images/guidepage3.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

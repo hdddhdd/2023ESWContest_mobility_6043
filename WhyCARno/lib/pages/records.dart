@@ -51,19 +51,23 @@ class _RecordsState extends State<Records> {
 
   List<String> videoUploadTimes = [];
   List<String> videoDurations = [];
-
+final downloadUrl = "";
   Future<void> loadVideoUrls() async {
     // Firebase Storage에서 파일 목록을 가져오는 코드
-    final storage = FirebaseStorage.instance;
-    final listResult = await storage.ref().listAll();
+     final storage = FirebaseStorage.instance;
+
+    final listResult = await storage.ref().listAll(); //여기서 모든걸 가져옴
+
+    
 
     // 가져온 파일 목록 중에서 동영상 파일만 선택하여 URL 및 업로드 시간을 저장
     for (final item in listResult.items) {
-      if (item.name.endsWith('.mp4') || item.name.endsWith('.')) {
+      if (item.name.endsWith('.mov') || item.name.endsWith('.')) {
         final downloadUrl = await item.getDownloadURL();
         final creationTime = await getUploadTime(item.name);
 
         videoUrls.add(downloadUrl);
+
         var controller;
         controller = VideoPlayerController.network(downloadUrl)
           ..initialize().then((_) {
@@ -181,6 +185,7 @@ class _RecordsState extends State<Records> {
                         ),
                       ),
                       const SizedBox(height: 20), // Ad
+                
                     ],
                   );
                 },

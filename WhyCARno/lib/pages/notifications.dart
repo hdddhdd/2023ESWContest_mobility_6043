@@ -30,7 +30,7 @@ class _NotificationsState extends State<Notifications> {
 
     // 가져온 파일 목록 중에서 동영상 파일만 선택하여 URL 및 업로드 시간을 저장
     for (final item in listResult.items) {
-      if (item.name.endsWith('.mp4') || item.name.endsWith('.')) {
+      if (item.name.endsWith('.mov') || item.name.endsWith('.')) {
         final downloadUrl = await item.getDownloadURL();
         final creationTime = await getUploadTime(item.name);
 
