@@ -10,6 +10,9 @@
 #### 6. [Software](#Software) 
 #### 7. [기술스택](#기술-스택)
 
+## ALGORITHM
+![Blue modern marketing proposal presentation ](https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e)
+
 ## 0. Team INFO
 ### Team whycarno | 경북대학교 컴퓨터학부 소속
 
