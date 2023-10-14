@@ -1,6 +1,6 @@
 # whyCARno - App 📱
 
-## File tree 🌲
+### 🗂️ 파일 구조
 ```plaintext
 WhyCARno
 ...                        
@@ -33,6 +33,25 @@ WhyCARno
 ...
 
 
-## App UI
 
-                      
+### 📝 실행 방법
+1. Git 클론 및 브랜치 변경
+  ```bash
+  git clone https://github.com/hdddhdd/whycarno_6043.git
+  cd whycarno_6043
+  git checkout App
+  cd WhyCARno
+  ```
+
+2. 개발 환경 세팅 (모듈 설치)
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+3. 실행
+  ```
+  flutter run
+  ```
+
+### 📸 실행화면
+**준비중 ...**
