@@ -7,6 +7,7 @@ import numpy as np
 import firebase_admin
 from uuid import uuid4
 from pathlib import Path
+from flask_cors import CORS
 from PIL import ImageFont, ImageDraw, Image
 from firebase_admin import credentials, db, storage
 from flask import Flask, render_template, Response
@@ -17,6 +18,8 @@ from MP3Player import player
 
 
 app = Flask(__name__)
+# CORS 설정
+CORS(app,resource={r'*':{'origins':'*'}})
 capture = cv2.VideoCapture(0)
 fourcc = cv2.VideoWriter_fourcc(*'H264')
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -84,6 +87,7 @@ def gen_frames():
             ref, buffer = cv2.imencode('.jpg', frame)
             frame1 = frame
             frame = buffer.tobytes()
+            print(player_control)
             # 자이로 센서 값 받아오기
             start_record, value = MPU()
             if start_record:
@@ -129,6 +133,12 @@ def index():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/player')
+def playerHandler():
+    global player_control
+    player_control = not player_control
+    return {"player_control" : player_control}
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port="8080")
     # app.run(host="192.168.0.5", port="8080")
