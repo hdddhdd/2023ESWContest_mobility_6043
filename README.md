@@ -1,4 +1,4 @@
-# Team whycarno(6043)
+# whyCARno - Sensor
 
 ### 🗂️ 파일 구조
 ```
