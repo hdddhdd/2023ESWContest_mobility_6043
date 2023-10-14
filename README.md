@@ -2,7 +2,7 @@
 
 ### 🗂️ 파일 구조
 WhyCARno
-...
+```
 ├─ assets
 ├─ lib
 │   ├─ components
@@ -29,7 +29,7 @@ WhyCARno
 ├─ pubspec.yaml
 ├─ requirements.txt
 └─ storage.rules
-...
+```
 
 ### 실행방법
 1. Git 클론 및 브랜치 변경
