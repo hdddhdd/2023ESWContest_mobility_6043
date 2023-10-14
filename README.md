@@ -1,17 +1,18 @@
-# [프로젝트 개요 및 팀 소개]
+<h1>[프로젝트 개요 및 팀 소개]</h1>
+
 ## ALGORITHM
-![Blue modern marketing proposal presentation ](https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e)
+![Blue modern marketing proposal presentation](https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e)
 
 ## Team INFO
 ### Team whycarno | 경북대학교 컴퓨터학부 소속
 
-#### 🤷 최희정(팀장) [nuly08@naver.com](mailto:nuly08@naver.com)
+#### 🤷 최희정(팀장) [https://github.com/hddhdd](https://github.com/hdddhdd) || [nuly08@naver.com](mailto:nuly08@naver.com)
 
-#### 🧑‍💻 김동주 [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
+#### 🧑‍💻 김동주 [https://github.com/dongju333](https://github.com/dongju333) || [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
 
-#### 🤷‍♀️ 전지웅 [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
+#### 🤷‍♀️ 전지웅 [https://github.com/wldnd2](https://github.com/wldnd2) || [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
 
-#### 🤷‍♂️ 윤우린 [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
+#### 🤷‍♂️ 윤우린 [https://github.com/balkary](https://github.com/balkary) || [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
 
 ## 1. 작품 소개
 >  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/><br/>
@@ -24,25 +25,25 @@
 ## 2. 작품 시연
 **시연 영상(현재 링크에서 확인 가능)**<br/>
 
-## 3. 각 branch 별 설
-* 홈 화면<br/>
-* 녹화 화면<br/>
-* 알림 화면
+## 3. Branches
+* AI<br/>
+* Sensor<br/>
+* Server<br/>
+* Web<br/>
+* Application
 
-## 4. Web
-* 메인 화면<br/>
-* 녹화 영상 화면<br/>
-
-## 5. Hardware
+## 4. Hardware
 * Hardware 구성<br/>
-![hardware](https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403)
+![hardware](https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403 )
 * 작품 외관<br/>
 * 센서 회로도<br/>
 
-## 6. Software
+## 5. Software
 * 알고리즘<br/>
+* Application<br/>
+* Web
 
-## 7. Stack
+## 6. Stack
 ### Development Environment
 <div style="display: flex; justify-content: space-between;">
   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white"/>
