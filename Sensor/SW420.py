@@ -16,7 +16,7 @@ def Crash_D():
         if GPIO.input(PIN_NUM)==CHECK_ON:
             count += 1
         Interval_T = time.time() - Start_T
-        if Interval_T >= 1:
+        if Interval_T >= 0.5:
             break
 
     GPIO.cleanup()
