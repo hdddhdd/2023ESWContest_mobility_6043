@@ -1,0 +1,90 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.play-button {
+  background-color: #007bff; /* 파란색 */
+  color: #fff; /* 텍스트 색상 */
+  font-weight: bold; /* 볼드체 텍스트 */
+  border: none;
+  width: 160px; /* 너비를 크게 조정 */
+  height: 80px; /* 높이를 크게 조정 */
+  font-size: 24px; /* 텍스트 크기를 크게 조정 */
+  padding: 10px 20px; /* 내부 패딩을 크게 조정 */
+  margin: 10px; /* 마진을 크게 조정 */
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.play-button:hover {
+  background-color: #0056b3; /* 호버 시 배경색 변경 */
+  transform: scale(1.0); /* 호버 시 확대 효과 */
+}
+
+/* '켜기' 버튼 스타일 (초록색) */
+.on-button {
+  background-color: #28a745; /* 초록색 */
+  color: #fff; /* 텍스트 색상 */
+  font-weight: bold; /* 볼드체 텍스트 */
+  border: none;
+  width: 160px; /* 너비를 크게 조정 */
+  height: 80px; /* 높이를 크게 조정 */
+  font-size: 24px; /* 텍스트 크기를 크게 조정 */
+  padding: 15px 20px; /* 내부 패딩을 크게 조정 */
+  margin: 10px; /* 마진을 크게 조정 */
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.on-button:hover {
+  background-color: #218838; /* 호버 시 배경색 변경 */
+  transform: scale(1.0); /* 호버 시 확대 효과 */
+}
+
+/* '끄기' 버튼 스타일 (노란색) */
+.off-button {
+  background-color: #ffc107; /* 노란색 */
+  color: #fff; /* 텍스트 색상 */
+  font-weight: bold; /* 볼드체 텍스트 */
+  border: none;
+  width: 160px; /* 너비를 크게 조정 */
+  height: 80px; /* 높이를 크게 조정 */
+  font-size: 24px; /* 텍스트 크기를 크게 조정 */
+  padding: 15px 20px; /* 내부 패딩을 크게 조정 */
+  margin: 10px; /* 마진을 크게 조정 */
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.off-button:hover {
+  background-color: #e0a800; /* 호버 시 배경색 변경 */
+  transform: scale(1.0); /* 호버 시 확대 효과 */
+}
+
+/* 아이콘 스타일 */
+.icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.play-button,
+.on-button,
+.off-button {
+  text-decoration: none; /* 텍스트의 밑줄 제거 */
+}
