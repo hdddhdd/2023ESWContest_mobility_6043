@@ -5,3 +5,4 @@ uuid
 pathlib
 Pillow
 flask
+flask_cors
