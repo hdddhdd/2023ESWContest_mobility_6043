@@ -25,31 +25,7 @@ from utils.torch_utils import select_device, smart_inference_mode
 
 
 @smart_inference_mode()
-def run(
-        weights=ROOT / 'yolov5s.pt',  # model path or triton URL
-        source=ROOT / 'data/images',  # file/dir/URL/glob/screen/0(webcam)
-        data=ROOT / 'data/coco128.yaml',  # dataset.yaml path
-        imgsz=(640, 640),  # inference size (height, width)
-        conf_thres=0.25,  # confidence threshold
-        iou_thres=0.45,  # NMS IOU threshold
-        max_det=1000,  # maximum detections per image
-        device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
-        view_img=False,  # show results
-        nosave=False,  # do not save images/videos
-        classes=None,  # filter by class: --class 0, or --class 0 2 3
-        agnostic_nms=False,  # class-agnostic NMS
-        augment=False,  # augmented inference
-        visualize=False,  # visualize features
-        project=ROOT / 'runs/detect',  # save results to project/name
-        name='exp',  # save results to project/name
-        exist_ok=False,  # existing project/name ok, do not increment
-        line_thickness=3,  # bounding box thickness (pixels)
-        hide_labels=False,  # hide labels
-        hide_conf=False,  # hide confidences
-        half=False,  # use FP16 half-precision inference
-        dnn=False,  # use OpenCV DNN for ONNX inference
-        vid_stride=1,  # video frame-rate stride
-):
+def run(weights, source, data, imgsz, conf_thres, iou_thres, max_det, device, view_img, nosave, classes, agnostic_nms, augment, visualize, project, name, exist_ok, line_thickness, hide_labels, hide_conf, half, dnn, vid_stride):
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
     is_file = Path(source).suffix[1:] in (IMG_FORMATS + VID_FORMATS)
@@ -207,15 +183,16 @@ def run(
                     vid_writer[i].write(im0)
 
 def detection(model, input):
-    
     args = argparse.Namespace(
         weights=model,
         source=input,
         data='coco128.yaml',
-        imgsz=(640, 640),
-        conf_thres=0.5,
-        iou_thres=0.45,
-        max_det=1000,
+        # imgsz=(640, 640),
+        imgsz=(320, 320),
+        conf_thres=0.2,     # confidence threshold
+        iou_thres=0.45,     # NMS IOU threshold
+        # max_det=1000,
+        max_det=50,         # 50개까지만 인식
         device='',
         view_img=False,
         nosave=False,
