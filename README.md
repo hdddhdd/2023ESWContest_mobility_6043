@@ -40,7 +40,7 @@
 
 ## 🛠️ Hardware
 * Hardware 구성도<br/>
-<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="400" height="400">
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="450" height="400">
 
 * 작품 외관<br/>
   * 준비중.... <br/>
