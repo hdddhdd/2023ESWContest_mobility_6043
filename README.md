@@ -1,6 +1,6 @@
 <h1>[프로젝트 개요 및 팀 소개]</h1>
 
-## ALGORITHM
+## 프로젝트 개요
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e" alt="Blue modern marketing proposal presentation" width="850" height="500">
 
 ## 프로젝트 정보
@@ -17,6 +17,8 @@
 #### 🤷‍♀️ 전지웅(팀원) [https://github.com/wldnd2](https://github.com/wldnd2) || [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
 
 #### 🤷‍♂️ 윤우린(팀원) [https://github.com/balkary](https://github.com/balkary) || [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
+***
+<h1>[작품 상세 소개]</h1>
 
 ## 1. 작품 소개
 >  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/><br/>
