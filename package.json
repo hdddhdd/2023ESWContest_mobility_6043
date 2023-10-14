@@ -1,6 +1,7 @@
 {
   "name": "whycarno_6043",
   "private": true,
+  "proxy": "https://127.0.0.1:8080",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
