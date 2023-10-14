@@ -1,19 +1,8 @@
-# Team whycarno(6043)
-
-## 목차
-#### 0. [Team INFO](#team-info)
-#### 1. [작품 소개](#작품-소개)   
-#### 2. [작품 시연](#작품-시연)   
-#### 3. [Application](#Application)   
-#### 4. [Web](#어플리케이션)   
-#### 5. [Hardware](#Hardware)   
-#### 6. [Software](#Software) 
-#### 7. [기술스택](#기술-스택)
-
+# [프로젝트 개요 및 팀 소개]
 ## ALGORITHM
 ![Blue modern marketing proposal presentation ](https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e)
 
-## 0. Team INFO
+## Team INFO
 ### Team whycarno | 경북대학교 컴퓨터학부 소속
 
 #### 🤷 최희정(팀장) [nuly08@naver.com](mailto:nuly08@naver.com)
@@ -35,7 +24,7 @@
 ## 2. 작품 시연
 **시연 영상(현재 링크에서 확인 가능)**<br/>
 
-## 3. Application
+## 3. 각 branch 별 설
 * 홈 화면<br/>
 * 녹화 화면<br/>
 * 알림 화면
