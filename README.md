@@ -33,11 +33,11 @@
 
 ## 3. Branches
 **각 브랜치별 Readme와 연결시켜줍니다.**<br/>
-* [AI_Branch](https://github.com/hdddhdd/whycarno_6043/blob/AI/README.md)<br/>
-* [Sensor_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Sensor/README.md)<br/>
-* [Server_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Server/README.md)<br/>
-* [Web_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Web/README.md)<br/>
-* [App_Branch](https://github.com/hdddhdd/whycarno_6043/blob/App/README.md)
+🧠 [AI_Branch](https://github.com/hdddhdd/whycarno_6043/blob/AI/README.md)<br/>
+🔋 [Sensor_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Sensor/README.md)<br/>
+🖥️ [Server_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Server/README.md)<br/>
+📰 [Web_Branch](https://github.com/hdddhdd/whycarno_6043/blob/Web/README.md)<br/>
+📱 [App_Branch](https://github.com/hdddhdd/whycarno_6043/blob/App/README.md)
 
 ## 4. Hardware
 * Hardware 구성도<br/>
