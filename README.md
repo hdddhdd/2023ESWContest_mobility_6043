@@ -46,6 +46,7 @@
 
 ## 5. Hardware
 * Hardware 구성<br/>
+![hardware](https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403)
 * 작품 외관<br/>
 * 센서 회로도<br/>
 
