@@ -20,8 +20,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
-    // name: 'whycarno app',
-    //options: DefaultFirebaseOptions.currentPlatform, // FirebaseOptions 설정을 가져옴
+    // name: 'whycarno',
+    options: DefaultFirebaseOptions.currentPlatform, // FirebaseOptions 설정을 가져옴
   );
 
   runApp(MyApp());

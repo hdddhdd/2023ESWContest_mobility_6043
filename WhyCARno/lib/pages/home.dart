@@ -47,21 +47,7 @@ class _HomeState extends State<Home> {
   Future<void> getMyCurrentLocation() async {
     // 위치권한을 가지고 있는지 확인
     var status_position = await Permission.location.status;
-
-    // if (status_position.isGranted) {
-    //   // 1-2. 권한이 있는 경우 위치정보를 받아와서 변수에 저장합니다.
-    //   Position position = await Geolocator.getCurrentPosition(
-    //       desiredAccuracy: LocationAccuracy.high);
-
-    //   latitude2 = position.latitude;
-    //   longitude2 = position.longitude;
-    //   print("$latitude2 $longitude2");
-    // } else {
-    //   // 1-3. 권한이 없는 경우
-    //   print("위치 권한이 필요합니다.");
-    //   // latitude2=1000.0; //for test
-    // }
-  } // ...getMyCurrentLocation()
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +68,7 @@ class _HomeState extends State<Home> {
             children: [
               TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
                 return Text(
-                  '${DateFormat('h:mm:s a').format(DateTime.now())}',
+                  '${DateFormat('h:mm:s a').format(DateTime.now())}',style: TextStyle(fontSize: 30),
                 );
               }),
               Image.asset(
@@ -92,23 +78,6 @@ class _HomeState extends State<Home> {
                 // fit: BoxFit.cover,
               ),
               const SizedBox(height: 20),
-              OutlinedButton(
-                onPressed: () {
-                  // Handle the first button press
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(
-                      const Size(350, 70)), // Set the desired size
-                  padding: MaterialStateProperty.all(
-                      const EdgeInsets.all(10)), // Set padding
-                ),
-                child: const Text(
-                  "실시간 영상 확인하기",
-                  style: TextStyle(
-                      fontSize: 18, color: Color.fromRGBO(1, 45, 107, 1)),
-                ),
-              ),
-              const SizedBox(height: 16),
               OutlinedButton(
                 onPressed: () {
                   // Handle the second button press
@@ -132,7 +101,6 @@ class _HomeState extends State<Home> {
                 ),
               ),
               const SizedBox(height: 16),
-              Text("$longitude2 $latitude2"),
             ],
           ),
         ),
