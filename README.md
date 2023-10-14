@@ -9,6 +9,10 @@
     └── SW420.py      # 충격감지 센서(SW-420) 실행파일
 ```
 
+### 📶 개발환경 세팅
+        sudo apt-get install smbus2
+        sudo apt-get install bitstring
+        
 ### 🪫 센서 회로도
     구성요소: Raspberry Pi 4, 자이로 센서(MPU-6050), 충격감지센서(SW-420), BreadBoard
 ![라즈베리파이4_회로도 jpg](https://github.com/hdddhdd/whycarno_6043/assets/131581393/a9123a8e-dd73-4c3a-adcd-fd38dbe30324)
