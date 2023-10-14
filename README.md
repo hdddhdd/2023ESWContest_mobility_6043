@@ -4,8 +4,8 @@
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e" alt="Blue modern marketing proposal presentation" width="850" height="500">
 
 ## 📰 프로젝트 정보
-* 대회명 :
-* 지원분야 : 모빌리티
+* 대회명 : [제 21회 임베디드 소프트웨어 경진대회](https://www.eswcontest.or.kr/main.php)
+* 지원분야 : 자동차/모빌리티
 * 개발 기간 : 2023.8 ~ 2023.10.26
 ## 👨‍👩‍👧‍👦 Team INFO
 #### Team whycarno | 경북대학교 컴퓨터학부 소속 재학생
@@ -22,10 +22,9 @@
 
 ## 📝작품 소개
 >  **작품명 : ALGORITHM (ALlowing GOing RIght TeacHing Model)** <br/>
-* 작품 설명 :<br/>
-* 작품 배경 :<br/>
-* 작품 목적 :<br/>
-* 기대효과 및 확장 가능성 :<br/>
+* 작품 설명 : 3줄요약<br/>
+* 작품 목적 : 준비중<br/>
+* 기대효과 및 확장 가능성 : 준비중
 
 ## 🎥 작품 시연
 **시연 영상(현재 링크에서 확인 가능)**<br/>
