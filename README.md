@@ -1,4 +1,4 @@
-# Team whycarno(6043)
+# whyCARno - Web 
 
 ### 🚀 배포 사이트
 > https://web-whycarno-12fhqa2blnigxajy.sel5.cloudtype.app
