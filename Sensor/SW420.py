@@ -9,8 +9,18 @@ def Crash_D():
 
     GPIO.setup(PIN_NUM, GPIO.IN)
 
-    if GPIO.input(PIN_NUM)==CHECK_ON:
-        GPIO.cleanup()
-        return True
+    count=0
+    Start_T=time.time()
+    
+    while True:
+        if GPIO.input(PIN_NUM)==CHECK_ON:
+            count += 1
+        Interval_T = time.time() - Start_T
+        if Interval_T >= 1:
+            break
+
     GPIO.cleanup()
+
+    if count >= 10
+        return True
     return False
