@@ -32,9 +32,7 @@ WhyCARno
 └─ storage.rules
 ...
 
-
-
-### 📝 실행 방법
+### 실행방법
 1. Git 클론 및 브랜치 변경
   ```bash
   git clone https://github.com/hdddhdd/whycarno_6043.git
