@@ -1,4 +1,5 @@
 import os
+import glob
 import time
 import cv2
 import datetime
@@ -28,6 +29,7 @@ start_record = False
 video = None
 start_time = "" 
 recording_time = 10
+player_control = False
 
 def database_init():
     try:
@@ -67,9 +69,7 @@ def gen_frames():
     directory = "result"
     if not os.path.exists(directory):
         os.makedirs(directory)
-    video_name = f"{directory}/test.mov"  # 파일 경로로 설정
-    # video_name = f"{directory}/accident.mp4"  # 파일 경로로 설정
-    # video_name = str(Path(f'{directory}/accident').with_suffix(".mp4"))
+    video_name = f"{directory}/"  # 파일 경로로 설정
     while True:
         now = datetime.datetime.now()
         nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -88,12 +88,15 @@ def gen_frames():
             start_record, value = MPU()
             if start_record:
                 if is_record == False:     # 녹화 시작
-                    if os.path.exists(video_name):
+                    if os.path.exists("result/*.mov"):
                         os.remove(video_name)
                         print("REMOVED!!!")
                         time.sleep(2)
                     print("//////// Recording Start ////////", value)
-                    player(False, "mp3/turn_right.mp3")
+                    # 비디오 이름 설정
+                    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+                    video_name = f"{directory}/{current_time}.mov"  # 파일 경로로 설정
+                    player(player_control, "mp3/turn_right.mp3")
                     DB_name = datetime.datetime.now().strftime('%Y-%m-%d')
                     is_record = True
                     start_record = False
@@ -102,14 +105,12 @@ def gen_frames():
                     print("+++++++++ RECORDING!!! ++++++++++++", value)
                     if Crash_D():
                         print("***** CRASH!!!! *****")
-                        player(False, "mp3/collision.mp3")
+                        player(player_control, "mp3/collision.mp3")
                         is_record = False
                         start_record = False
                         video.release()
-                        result = firebase_process(video_name, DB_name)
-                        print(result)
+                        print(firebase_process(video_name, DB_name))
                         print("=== Recording Stop and DB upload Success ===")
-                        # reuslt 파일 삭제
                         time.sleep(2)
                     else:
                         video.write(frame1)
@@ -129,5 +130,5 @@ def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host="192.168.0.5", port="8080")
+    app.run(debug=True)
+    # app.run(host="192.168.0.5", port="8080")
