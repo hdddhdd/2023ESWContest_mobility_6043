@@ -1,18 +1,22 @@
 <h1>[프로젝트 개요 및 팀 소개]</h1>
 
 ## ALGORITHM
-![Blue modern marketing proposal presentation](https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e)
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e" alt="Blue modern marketing proposal presentation" width="850" height="500">
 
+## 프로젝트 정보
+* 대회명 :
+* 지원분야 : 모빌리티
+* 개발 기간 : 2023.8 ~ 2023.10.26
 ## Team INFO
-### Team whycarno | 경북대학교 컴퓨터학부 소속
+#### Team whycarno | 경북대학교 컴퓨터학부 소속 재학생
 
 #### 🤷 최희정(팀장) [https://github.com/hddhdd](https://github.com/hdddhdd) || [nuly08@naver.com](mailto:nuly08@naver.com)
 
-#### 🧑‍💻 김동주 [https://github.com/dongju333](https://github.com/dongju333) || [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
+#### 🧑‍💻 김동주(팀원) [https://github.com/dongju333](https://github.com/dongju333) || [dongjukim5129@gmail.com](mailto:dongjukim5129@gmail.com)
 
-#### 🤷‍♀️ 전지웅 [https://github.com/wldnd2](https://github.com/wldnd2) || [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
+#### 🤷‍♀️ 전지웅(팀원) [https://github.com/wldnd2](https://github.com/wldnd2) || [jiwoong000628@gmail.com](mailto:jiwoong000628@gmail.com)
 
-#### 🤷‍♂️ 윤우린 [https://github.com/balkary](https://github.com/balkary) || [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
+#### 🤷‍♂️ 윤우린(팀원) [https://github.com/balkary](https://github.com/balkary) || [yoonwoorin@gmail.com](mailto:yoonwoorin@gmail.com)
 
 ## 1. 작품 소개
 >  **개정된 우회전 교통법 알고리즘을 통해 운전자에게 편의를 제공합니다.** <br/><br/>
@@ -26,6 +30,7 @@
 **시연 영상(현재 링크에서 확인 가능)**<br/>
 
 ## 3. Branches
+**각 브랜치별 Readme와 연결시켜줍니다.**<br/>
 * AI<br/>
 * Sensor<br/>
 * Server<br/>
@@ -33,15 +38,24 @@
 * Application
 
 ## 4. Hardware
-* Hardware 구성<br/>
-![hardware](https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403 )
+* Hardware 구성도<br/>
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="400" height="400">
+
 * 작품 외관<br/>
+  * 준비중.... <br/>
+
 * 센서 회로도<br/>
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/a9123a8e-dd73-4c3a-adcd-fd38dbe30324" alt="라즈베리파이4 회로도" width="400" height="400">
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/84999fe5-ddfa-4f05-ae01-c468e4ad5138" alt="라즈베리파치4 스케메틱" width="400" height="400">
+
 
 ## 5. Software
 * 알고리즘<br/>
+  * 순서도 사진 첨부
 * Application<br/>
+  * 사진 첨부
 * Web
+  * 사진 첨부
 
 ## 6. Stack
 ### Development Environment
