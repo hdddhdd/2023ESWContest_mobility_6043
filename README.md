@@ -1,4 +1,4 @@
-# Team whycarno(6043)
+# whyCARno - App 📱
 
 ### 🗂️ 파일 구조
 ```
