@@ -12,7 +12,7 @@
 
 | 최희정 | 김동주 | 전지웅 | 윤우린 |
 | :---: | :---: | :---: | :---: |
-| <a href="https://github.com/hddhdd"><img src="https://avatars.githubusercontent.com/u/71762328?v=4" alt="hddhdd" width="100" height="100"></a> | <a href="https://github.com/dongju333"><img src="https://avatars.githubusercontent.com/u/131581393?v=4" alt="dongju333" width="100" height="100"></a> | <a href="https://github.com/wldnd2"><img src="https://avatars.githubusercontent.com/u/100078615?v=4" alt="wldnd2" width="100" height="100"></a> | <a href="https://github.com/balkary"><img src="https://avatars.githubusercontent.com/u/132255829?v=4" alt="balkary" width="100" height="100"></a> |
+| <a href="https://github.com/hdddhdd"><img src="https://avatars.githubusercontent.com/u/71762328?v=4" alt="hddhdd" width="100" height="100"></a> | <a href="https://github.com/dongju333"><img src="https://avatars.githubusercontent.com/u/131581393?v=4" alt="dongju333" width="100" height="100"></a> | <a href="https://github.com/wldnd2"><img src="https://avatars.githubusercontent.com/u/100078615?v=4" alt="wldnd2" width="100" height="100"></a> | <a href="https://github.com/balkary"><img src="https://avatars.githubusercontent.com/u/132255829?v=4" alt="balkary" width="100" height="100"></a> |
 | 팀장 [📨](mailto:nuly08@naver.com)| 팀원 [📨](mailto:dongjukim5129@gmail.com) | 팀원 [📨](mailto:jiwoong000628@gmail.com) | 팀원 [📨](mailto:yoonwoorin@gmail.com) |
 
 ***
