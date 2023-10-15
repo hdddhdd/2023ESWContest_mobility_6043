@@ -1,7 +1,8 @@
 <h1>[프로젝트 개요 및 팀 소개]</h1>
 
 ## 📑 프로젝트 개요
-![image](https://github.com/hdddhdd/whycarno_6043/assets/71762328/ecc61d08-6201-4045-8c74-6a3a361ff878)
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/ecc61d08-6201-4045-8c74-6a3a361ff878" alt="이미지 설명" width="800" height="450"><br/>
+
 
 ## 📰 프로젝트 정보
 * **대회명 :** [제 21회 임베디드 소프트웨어 경진대회](https://www.eswcontest.or.kr/main.php)
