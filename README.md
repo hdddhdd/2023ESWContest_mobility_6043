@@ -1,7 +1,7 @@
 <h1>[프로젝트 개요 및 팀 소개]</h1>
 
 ## 📑 프로젝트 개요
-<img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e" alt="Blue modern marketing proposal presentation" width="870" height="500">
+![image](https://github.com/hdddhdd/whycarno_6043/assets/71762328/ecc61d08-6201-4045-8c74-6a3a361ff878)
 
 ## 📰 프로젝트 정보
 * **대회명 :** [제 21회 임베디드 소프트웨어 경진대회](https://www.eswcontest.or.kr/main.php)
