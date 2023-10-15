@@ -4,9 +4,9 @@
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/f457edc0-3fae-4625-99f3-3aa6aa0d005e" alt="Blue modern marketing proposal presentation" width="870" height="500">
 
 ## 📰 프로젝트 정보
-* 대회명 : [제 21회 임베디드 소프트웨어 경진대회](https://www.eswcontest.or.kr/main.php)
-* 지원분야 : 자동차/모빌리티
-* 개발 기간 : 2023.8.1 ~ 2023.10.26
+* **대회명 :** [제 21회 임베디드 소프트웨어 경진대회](https://www.eswcontest.or.kr/main.php)
+* **지원분야 :** 자동차/모빌리티
+* **개발 기간 :** 2023.8.1 ~ 2023.10.26
 ## 👨‍👩‍👧‍👦 Team INFO
 #### Team whycarno | 경북대학교 컴퓨터학부 소속 재학생
 
@@ -20,14 +20,18 @@
 
 ## 📝작품 소개
 * **작품명 : ALGORITHM (ALlowing GOing RIght TeacHing Model)** <br/>
-* **작품 설명** : <br/>
+* **작품 설명 :**  <br/>
 차량의 카메라를 통해 횡단보도상 보행자 및 신호 상태를 파악하여 우회전을 결정하는 알고리즘을 개발해서 운전자가 올바르지 않은 주행을 하는 경우 차량 내부에서 경고해주는 시스템을 구축한다. 최종적으로, 개발된 시스템의 빠른 도입으로 많은 운전자들이 더욱 정확하고 안전하게 우회전 주행이 가능하도록 하며 사고 발생률을 줄인다. <br/>
-* **작품 목적** : <br/>
+* **작품 목적 :**  <br/>
 전방 및 좌/우측 객체 감지 기반의 운전자 경고 시스템을 개발함으로써 우회전 상황에서의 운전자와 보행자의 편의성과 안전성을 증대시키는 것을 목적으로 한다.<br/>
-
+* **작품 외관**<br/>
+  * 준비중.... 
 ## 🎥 작품 시연
-* **시연 방법 설명 : 팀원의 차량내 핸들에 센서와 웹캠을 부착하여 진행<br/>**
-* **시연 영상(현재 링크에서 확인 가능)**
+* **시연 방법 설명 :** 팀원의 차량내 핸들에 센서와 웹캠을 부착하여 진행<br/>
+* **시연 환경 구축 :**
+  * 사진 첨부부
+* **시연 영상**
+  * **(현재 링크에서 확인 가능)**
 
 ## 🗂️ Branches
 **각 브랜치별 Readme와 연결시켜줍니다.**<br/>
@@ -38,23 +42,20 @@
 📱 [App_Branch](https://github.com/hdddhdd/whycarno_6043/blob/App/README.md)
 
 ## 🛠️ Hardware
-* Hardware 구성도<br/>
-<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="450" height="400">
+* **Hardware 구성도**<br/>
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="450" height="400"><br/>
 
-* 작품 외관<br/>
-  * 준비중.... <br/>
-
-* 센서 회로도<br/>
+* **센서 회로도**<br/>
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/a9123a8e-dd73-4c3a-adcd-fd38dbe30324" alt="라즈베리파이4 회로도" width="400" height="400">
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/84999fe5-ddfa-4f05-ae01-c468e4ad5138" alt="라즈베리파치4 스케메틱" width="400" height="400">
 
 
 ## 🛜 Software
-* 알고리즘<br/>
-  * 순서도 사진 첨부
-* Application<br/>
-  * 사진 첨부
-* Web
+* **알고리즘**<br/>
+  * 순서도 사진 첨부<br/>
+* **App**<br/>
+  * 사진 첨부<br/>
+* **Web** <br/> 
   * 사진 첨부
 
 ## 📑 Stack
