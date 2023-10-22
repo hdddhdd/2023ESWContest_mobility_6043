@@ -1,4 +1,4 @@
-# whyCARno - AI
+# whyCARno - AI 🧠
 
 ### 🗂️ 파일 구조
 ```
