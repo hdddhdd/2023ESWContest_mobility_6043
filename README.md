@@ -57,7 +57,14 @@
 * **알고리즘**<br/>
   * 순서도 사진 첨부<br/>
 * **App**<br/>
-  * 사진 첨부<br/>
+ <div style="display: flex;">
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/12b6c526-525b-4133-9e55-0c9e85e4ae96" width="230" style="margin: 10px;">
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/ca14149e-4328-4710-868e-5cd674ebfc5b" width="230" style="margin: 10px;">
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/55defff7-785b-4a72-8ac4-ecb1b3e2bd4d" width="230" style="margin: 10px;">
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/d58b9ee6-ac3a-496f-bafa-160a16af7773" width="230" style="margin: 10px;">
+ </div>
+
+
 * **Web** <br/> 
   * 사진 첨부
 
