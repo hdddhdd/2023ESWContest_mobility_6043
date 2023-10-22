@@ -26,7 +26,7 @@
 * **작품 목적 :**  <br/>
 전방 및 좌/우측 객체 감지 기반의 운전자 경고 시스템을 개발함으로써 우회전 상황에서의 운전자와 보행자의 편의성과 안전성을 증대시키는 것을 목적으로 한다.<br/>
 * **작품 외관**<br/>
-  <img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/47ad8c11-e6c1-42c0-bf0b-5de2be3587ac" alt="이미지 설명" width="800" height="450"><br/>
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/47ad8c11-e6c1-42c0-bf0b-5de2be3587ac" alt="이미지 설명" width="800" height="450"><br/>
 
 
 
