@@ -49,8 +49,8 @@
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/c237c885-03d2-4d31-9113-f0bcd6592403" alt="hardware" width="450" height="400"><br/>
 
 * **센서 회로도**<br/>
-<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/a9123a8e-dd73-4c3a-adcd-fd38dbe30324" alt="라즈베리파이4 회로도" width="430" height="370">
-<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/84999fe5-ddfa-4f05-ae01-c468e4ad5138" alt="라즈베리파치4 스케메틱" width="430" height="400">
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/a9123a8e-dd73-4c3a-adcd-fd38dbe30324" alt="라즈베리파이4 회로도" width="430" height="370" style="margin: 10px;">
+<img src="https://github.com/hdddhdd/whycarno_6043/assets/131581393/84999fe5-ddfa-4f05-ae01-c468e4ad5138" alt="라즈베리파치4 스케메틱" width="430" height="400" style="margin: 10px;">
 
 
 ## 🛜 Software
@@ -66,7 +66,9 @@
 
 
 * **Web** <br/> 
-  * 사진 첨부
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/100078615/1cd2beca-ef49-4acf-aecd-dc783bcb0b34" alt="이미지 설명" width="480" height="300" style="margin: 10px;">
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/100078615/5b3ec999-b210-4164-bea8-31725aa296a3" alt="이미지 설명" width="480" height="300" style="margin: 10px;">
+
 
 ## 📑 Stack
 ### Development Environment
