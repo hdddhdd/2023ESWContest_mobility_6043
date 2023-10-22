@@ -1,4 +1,4 @@
-# whyCARno - App 📱
+# whyCARno - AI
 
 ### 🗂️ 파일 구조
 ```
