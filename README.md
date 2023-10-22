@@ -69,4 +69,5 @@
   ```
 
 ### 📸 실행화면
-**준비중 ...**
+![test (1)](https://github.com/hdddhdd/whycarno_6043/assets/100078615/9d0e0e81-d5c0-4cee-81e8-b682cce6b809)
+
