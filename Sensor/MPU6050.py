@@ -62,7 +62,7 @@ def MPU():
             count += 1
         previous_aY = aY
         return True, round(aY, 2)
-    if aY > 0 and LeftT == 0:
+    if aY > -60 and LeftT == 0:
         if previous_aY - aY < -180:
             LeftT = 1
             previous_aY = aY
