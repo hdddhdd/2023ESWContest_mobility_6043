@@ -58,7 +58,7 @@
 
 ## 🛜 Software
 * **알고리즘**<br/>
-  * 순서도 사진 첨부<br/>
+  <img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/54408a53-047a-4119-b44d-b07895a21914" alt="이미지 설명" width="350" height="550"><br/>
 * **App**<br/>
  <div style="display: flex;">
   <img src="https://github.com/hdddhdd/whycarno_6043/assets/71762328/12b6c526-525b-4133-9e55-0c9e85e4ae96" width="230" style="margin: 10px;">
