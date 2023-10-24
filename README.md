@@ -37,7 +37,7 @@
 <img src="https://github.com/hdddhdd/whycarno_6043/assets/132255829/2aee75a8-4665-4437-9c06-dec28c034727" alt="이미지" width="600" height="400"><br/>
 
 * **시연 영상**
-  [2023 임베디드 sw대회 - whyCarNo팀 시연 영상](https://www.youtube.com/watch?v=eCGsCfQpV5I)
+  [2023 임베디드 소프트웨어 경진대회 - whyCarNo팀 시연 영상](https://www.youtube.com/watch?v=eCGsCfQpV5I)
 
 ## 🗂️ Branches
 **각 브랜치별 Readme와 연결시켜줍니다.**<br/>
