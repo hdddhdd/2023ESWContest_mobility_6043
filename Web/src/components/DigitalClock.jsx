@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-function DigitalClock() {
+export default function DigitalClock() {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -13,9 +14,18 @@ function DigitalClock() {
 
   return (
     <>
-      <h1>{currentTime}</h1>
+      <TimeText>{currentTime}</TimeText>
     </>
   );
 }
 
-export default DigitalClock;
+const TimeText = styled.h1`
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+`;

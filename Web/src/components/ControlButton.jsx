@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
-import { BsFillBellSlashFill, BsFillBellFill, BsFillCaretRightFill } from 'react-icons/bs';
-import {Link} from 'react-router-dom';
+import { BsFillBellSlashFill, BsFillBellFill } from 'react-icons/bs';
 import "./ControlButton.css";
 
 function ControlButton() {
@@ -40,11 +39,6 @@ function ControlButton() {
 
   return (
     <div className="App">
-      <Link to="/video">
-        <button className="play-button">
-          {<BsFillCaretRightFill className="icon" />} 영상
-        </button>
-      </Link>
       <button className={`icon-button ${isCollisionTTSOn ? 'on-button' : 'off-button'}`} onClick={handleCollisionTTSClick}>
         {isCollisionTTSOn ? <BsFillBellSlashFill className="icon" /> : <BsFillBellFill className="icon" />} 알림
       </button>

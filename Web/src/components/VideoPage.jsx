@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ref, get, child } from 'firebase/database';
 import { realtimeDbService } from '../utils/firebase';
-import { BsMap }from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import './VideoPage.css'; // CSS 모듈 가져오기
+import styled from 'styled-components';
 
 export default function VideoPage() {
   const [data, setData] = useState([]);
@@ -30,11 +28,11 @@ export default function VideoPage() {
   }, []);
 
   return (
-    <div className='DB-container'>
+    <>
       {data.length > 0 ? (
-        <div>
+        <DBContainer>
           {data.map((timeData, index) => (
-            <div key={index} className='video-container'>
+            <VideoContainer key={index}>
               {Object.keys(timeData).map((time, subIndex) => (
                 <div key={subIndex} className='object-contianer'>
                   <p>Date : {timeData[time].date_time}</p>
@@ -46,17 +44,40 @@ export default function VideoPage() {
                     src={timeData[time].video_url} />
                 </div>
               ))}
-            </div>
+            </VideoContainer>
           ))}
-          <Link to="/">
-            <button className="homeButton">
-              {<BsMap className="icon" />} 홈
-            </button>
-          </Link>
-        </div>
+        </DBContainer>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </>
   );
 }
+
+const DBContainer = styled.div`
+  margin-top: 10px;
+  width: 90%;
+  height: 100%; // 높이를 100%로 변경
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll; // scroll 대신 auto로 변경
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border: 10px solid #fff;
+`;
+
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .object-contianer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;

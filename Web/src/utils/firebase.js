@@ -3,14 +3,14 @@ import { getFirestore } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDn47NDPoiBHtdrhEtrR0SWSLBf-aFv8SQ",
-  authDomain: "whycarno-firebase.firebaseapp.com",
-  databaseURL: "https://whycarno-firebase-default-rtdb.firebaseio.com",
-  projectId: "whycarno-firebase",
-  storageBucket: "whycarno-firebase.appspot.com",
-  messagingSenderId: "397000885213",
-  appId: "1:397000885213:web:0a84ef9e8a9c5f7f712c34",
-  measurementId: "G-SRSPM7Q4MR"
+  apiKey: "AIzaSyCmI_NWtDI4VQJumV-KPbsl7Fh6awHGiRU",
+  authDomain: "temp-f41a9.firebaseapp.com",
+  databaseURL: "https://temp-f41a9-default-rtdb.firebaseio.com",
+  projectId: "temp-f41a9",
+  storageBucket: "temp-f41a9.appspot.com",
+  messagingSenderId: "656448348086",
+  appId: "1:656448348086:web:ce17e0884ded22d0fcab17",
+  measurementId: "G-8JRV2XVRM2"
 };
 
 const app = initializeApp(firebaseConfig);
