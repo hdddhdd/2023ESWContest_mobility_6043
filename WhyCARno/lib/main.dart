@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:whycarno/pages/records_list.dart';
 import 'package:whycarno/pages/rightguide.dart';
 import 'package:whycarno/service/databaseSvc.dart';
 import 'bottom_nav.dart';
@@ -21,16 +22,20 @@ void main() async {
 
   await Firebase.initializeApp(
     // name: 'whycarno',
-    options: DefaultFirebaseOptions.currentPlatform, // FirebaseOptions 설정을 가져옴
+    // options: DefaultFirebaseOptions.currentPlatform, // FirebaseOptions 설정을 가져옴
   );
 
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: "Whycarno App",
       home: MyHomePage(),
     );
@@ -38,6 +43,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -72,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     Home(),
-    Records(),
+    // Records(),
+    RecordlistPage(),
     Notifications(),
     Rightguide(),
   ];

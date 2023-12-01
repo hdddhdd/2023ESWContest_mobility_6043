@@ -97,15 +97,24 @@ class _NotificationsState extends State<Notifications> {
     // Firebase Cloud Messaging에서 알림을 받는 리스너를 설정합니다.
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       // 알림을 화면에 표시하고 알림 횟수를 증가시킵니다.
-      showNotification(message.notification!.title, message.notification!.body);
+      if (mounted) {
+        showNotification(
+            message.notification!.title, message.notification!.body);
+      }
     });
 
     // loadVideoUrls 함수를 initState에서 호출
     loadVideoUrls();
+    void dispose() {
+      // VideoPlayerController 및 기타 리소스 정리
+      for (var controller in controllers) {
+        controller.dispose();
+      }
+      super.dispose();
+    }
+
     previousNumberOfFiles = numberOfFiles;
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +124,10 @@ class _NotificationsState extends State<Notifications> {
       WidgetsBinding.instance!.addPostFrameCallback((_) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('충돌이 감지되었습니다.', style: TextStyle(fontSize: 18),),
+            content: Text(
+              '충돌이 감지되었습니다.',
+              style: TextStyle(fontSize: 18),
+            ),
           ),
         );
       });
@@ -133,7 +145,9 @@ class _NotificationsState extends State<Notifications> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(height: 20,),
+            Container(
+              height: 20,
+            ),
             Text(
               '⚠︎ 최근 $numberOfFiles건의 충돌이 감지되었습니다.', // 파일 개수 표시
               style: const TextStyle(fontSize: 18),
@@ -141,13 +155,18 @@ class _NotificationsState extends State<Notifications> {
             // 텍스트 리스트를 추가합니다.
             Expanded(
               child: ListView.builder(
+                // itemCount: videoUploadTimes.length,
                 itemCount: videoUploadTimes.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                   
-                    title: Text('${videoUploadTimes[index]}',style: TextStyle(color: Color.fromRGBO(1, 45, 107, 1)),),
-                    subtitle: Text('충돌이 감지되었습니다.', ),
-                    
+                    title: Text(
+                      videoUploadTimes[index],
+                      style:
+                          const TextStyle(color: Color.fromRGBO(1, 45, 107, 1)),
+                    ),
+                    subtitle: const Text(
+                      '충돌이 감지되었습니다.',
+                    ),
                   );
                 },
               ),
